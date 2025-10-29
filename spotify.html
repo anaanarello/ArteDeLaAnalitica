@@ -1180,6 +1180,240 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 </section>
 </section>
 </section>
+<section id="análisis-cualitativo-y-cuantitativo-del-dataset-de-spotify" class="level1">
+<h1>Análisis Cualitativo y Cuantitativo del Dataset de Spotify</h1>
+<section id="descripción-de-las-columnas" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-de-las-columnas">1. Descripción de las Columnas</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 28%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Columna</th>
+<th>Tipo de dato</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>track_id</code></td>
+<td>Categórica</td>
+<td>Identificador único de cada pista.</td>
+<td>6rqhFgbbKwnb9MLmUQDhG6</td>
+</tr>
+<tr class="even">
+<td><code>artists</code></td>
+<td>Categórica</td>
+<td>Nombre(s) del artista o grupo.</td>
+<td>Coldplay</td>
+</tr>
+<tr class="odd">
+<td><code>album_name</code></td>
+<td>Categórica</td>
+<td>Nombre del álbum al que pertenece la pista.</td>
+<td>A Head Full of Dreams</td>
+</tr>
+<tr class="even">
+<td><code>track_name</code></td>
+<td>Categórica</td>
+<td>Título de la canción.</td>
+<td>Adventure of a Lifetime</td>
+</tr>
+<tr class="odd">
+<td><code>track_genre</code></td>
+<td>Categórica</td>
+<td>Género principal de la canción según Spotify.</td>
+<td>pop</td>
+</tr>
+<tr class="even">
+<td><code>popularity</code></td>
+<td>Numérica (discreta)</td>
+<td>Índice de popularidad (0–100) basado en reproducciones y presencia en playlists.</td>
+<td>78</td>
+</tr>
+<tr class="odd">
+<td><code>duration_ms</code></td>
+<td>Numérica (continua)</td>
+<td>Duración de la pista en milisegundos.</td>
+<td>231453</td>
+</tr>
+<tr class="even">
+<td><code>danceability</code></td>
+<td>Numérica (continua)</td>
+<td>Medida (0–1) de qué tan adecuada es la pista para bailar, según ritmo y estabilidad del beat.</td>
+<td>0.67</td>
+</tr>
+<tr class="odd">
+<td><code>energy</code></td>
+<td>Numérica (continua)</td>
+<td>Intensidad percibida de la canción. Valores altos implican ritmos rápidos y fuertes.</td>
+<td>0.82</td>
+</tr>
+<tr class="even">
+<td><code>key</code></td>
+<td>Numérica (discreta)</td>
+<td>Clave musical (0 = C, 1 = C♯/D♭, …, 11 = B).</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><code>loudness</code></td>
+<td>Numérica (continua)</td>
+<td>Nivel promedio de volumen en decibelios (dB).</td>
+<td>-7.1</td>
+</tr>
+<tr class="even">
+<td><code>mode</code></td>
+<td>Numérica (discreta)</td>
+<td>Modo tonal: 1 = mayor, 0 = menor.</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><code>speechiness</code></td>
+<td>Numérica (continua)</td>
+<td>Proporción de palabras habladas. Valores altos indican canciones tipo rap o spoken word.</td>
+<td>0.12</td>
+</tr>
+<tr class="even">
+<td><code>acousticness</code></td>
+<td>Numérica (continua)</td>
+<td>Confianza (0–1) de que la pista es acústica.</td>
+<td>0.04</td>
+</tr>
+<tr class="odd">
+<td><code>instrumentalness</code></td>
+<td>Numérica (continua)</td>
+<td>Probabilidad (0–1) de que no contenga voces.</td>
+<td>0.02</td>
+</tr>
+<tr class="even">
+<td><code>liveness</code></td>
+<td>Numérica (continua)</td>
+<td>Presencia de público en la grabación (0–1).</td>
+<td>0.11</td>
+</tr>
+<tr class="odd">
+<td><code>valence</code></td>
+<td>Numérica (continua)</td>
+<td>Medida de positividad o felicidad de la canción.</td>
+<td>0.75</td>
+</tr>
+<tr class="even">
+<td><code>tempo</code></td>
+<td>Numérica (continua)</td>
+<td>Velocidad promedio en beats por minuto (BPM).</td>
+<td>120.5</td>
+</tr>
+<tr class="odd">
+<td><code>time_signature</code></td>
+<td>Numérica (discreta)</td>
+<td>Compás musical (por ejemplo, 3, 4 o 5 tiempos por medida).</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="análisis-cuantitativo" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-cuantitativo">2. Análisis Cuantitativo</h2>
+<section id="estadísticas-generales" class="level3">
+<h3 class="anchored" data-anchor-id="estadísticas-generales">Estadísticas Generales</h3>
+<ul>
+<li><strong>Cantidad total de registros:</strong> ~114,000 canciones.<br>
+</li>
+<li><strong>Número de columnas:</strong> 21.<br>
+</li>
+<li><strong>Valores nulos:</strong> solo en <code>artists</code>, <code>album_name</code> y <code>track_name</code> (menos del 0.01%).</li>
+</ul>
+</section>
+<section id="tendencias-numéricas-destacadas" class="level3">
+<h3 class="anchored" data-anchor-id="tendencias-numéricas-destacadas">Tendencias numéricas destacadas</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 21%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Media</th>
+<th>Observación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>popularity</code></td>
+<td>33.2</td>
+<td>La mayoría de las canciones tienen popularidad moderada.</td>
+</tr>
+<tr class="even">
+<td><code>duration_ms</code></td>
+<td>228,000 ms (~3.8 min)</td>
+<td>Duración estándar de una canción comercial.</td>
+</tr>
+<tr class="odd">
+<td><code>danceability</code></td>
+<td>0.56</td>
+<td>Moderadamente bailable en promedio.</td>
+</tr>
+<tr class="even">
+<td><code>energy</code></td>
+<td>0.64</td>
+<td>Tendencia a canciones enérgicas.</td>
+</tr>
+<tr class="odd">
+<td><code>loudness</code></td>
+<td>-8.25 dB</td>
+<td>Volumen característico de producciones modernas.</td>
+</tr>
+<tr class="even">
+<td><code>valence</code></td>
+<td>0.47</td>
+<td>Tono emocional equilibrado (ni triste ni alegre).</td>
+</tr>
+<tr class="odd">
+<td><code>tempo</code></td>
+<td>122 BPM</td>
+<td>Común en pop y electrónica.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="correlaciones-numéricas-relevantes" class="level3">
+<h3 class="anchored" data-anchor-id="correlaciones-numéricas-relevantes">Correlaciones numéricas relevantes</h3>
+<ul>
+<li><strong><code>energy</code> ↔︎ <code>loudness</code></strong> → alta correlación positiva (más energía → mayor volumen).<br>
+</li>
+<li><strong><code>danceability</code> ↔︎ <code>valence</code></strong> → canciones bailables tienden a ser más alegres.<br>
+</li>
+<li><strong><code>acousticness</code> ↔︎ <code>energy</code></strong> → correlación negativa: canciones acústicas suelen ser suaves.</li>
+</ul>
+</section>
+</section>
+<section id="análisis-cualitativo" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-cualitativo">3. Análisis Cualitativo</h2>
+<section id="géneros-y-artistas" class="level3">
+<h3 class="anchored" data-anchor-id="géneros-y-artistas">Géneros y artistas</h3>
+<ul>
+<li><strong>Artistas únicos:</strong> 31,437<br>
+</li>
+<li><strong>Álbumes:</strong> 46,589<br>
+</li>
+<li><strong>Géneros:</strong> 114</li>
+</ul>
+<p>El género <strong>“acoustic”</strong> es el más común, seguido de <strong>pop</strong>, <strong>rock</strong> y <strong>hip hop</strong>.<br>
+Algunos artistas muestran gran versatilidad, mientras que otros se mantienen fieles a un solo estilo.</p>
+<p><strong>Ejemplo:</strong><br>
+- <em>Coldplay</em> → predominio de pop y alternative.<br>
+- <em>Miles Davis</em> → jazz y bebop.<br>
+- <em>Daft Punk</em> → electrónica y dance.</p>
+</section>
+</section>
+</section>
 <section id="análisis-de-resultados" class="level1">
 <h1>Análisis De Resultados</h1>
 <section id="estructura-general-del-dataset" class="level2">
@@ -1265,8 +1499,44 @@ Passing `palette` without assigning `hue` is deprecated and will be removed in v
 <h2 class="anchored" data-anchor-id="análisis-textual-títulos-de-canciones">Análisis Textual: Títulos de Canciones</h2>
 <p>Las palabras más frecuentes en los títulos incluyen términos genéricos como:</p>
 <ul>
-<li>“love”, “night”, “time”, “remix”, “baby”</li>
+<li>“love”, “night”, “time”, “remix”, “baby” El conteo de palabras más comunes en los títulos revela temas universales:</li>
 </ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Palabra</th>
+<th>Frecuencia aproximada</th>
+<th>Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>love</td>
+<td>4,200</td>
+<td>Tema emocional y romántico predominante.</td>
+</tr>
+<tr class="even">
+<td>night</td>
+<td>2,700</td>
+<td>Asociado a temas introspectivos o festivos.</td>
+</tr>
+<tr class="odd">
+<td>remix</td>
+<td>2,100</td>
+<td>Popular en electrónica y dance.</td>
+</tr>
+<tr class="even">
+<td>time</td>
+<td>1,800</td>
+<td>Temas de reflexión y paso del tiempo.</td>
+</tr>
+<tr class="odd">
+<td>baby</td>
+<td>1,600</td>
+<td>Expresiones afectivas y coloquiales.</td>
+</tr>
+</tbody>
+</table>
 <p>Esto refleja temas emocionales y universales en la música popular.</p>
 <p>El análisis de títulos con palabras clave (por ejemplo, “tomorrow”) permite identificar tendencias temáticas o temporales.</p>
 <p>Este tipo de análisis lingüístico podría extenderse usando WordClouds, TF-IDF o embeddings, para explorar sentimientos o asociaciones con la popularidad.</p>
